@@ -87,6 +87,7 @@
 }
 .loginANDcart{
     display: flex;
+    gap: 8px;
 }
 .loginANDcart img{
     width: 25px;
@@ -195,12 +196,12 @@
 .buyout_message_container{
     position: absolute;
     height: 0px;
-    top: -15px;
+    top: -14px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1030;
     
 }
 .buyout_message{
@@ -230,11 +231,12 @@
     font-size:1.1rem;
     position: absolute;
     right:0px;
-    top: 22px;
+    top: 32px;
     height: 0;
 }
 .message{
     height: 0px;
+    user-select: none;
 }
 /* --------------------------------------  TERMINA CART CARD   ---------------------------------- */
 
@@ -310,9 +312,12 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #eeeeee;
-
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgb(255, 255, 255, 0.18);
     border-radius: 1rem;
+    
     
 }
 .card_shop img{
@@ -342,7 +347,7 @@
     display: flex;
 }
 .addToCart{
-    margin-top: 2rem;
+    margin: 1rem 0;
     width: 120px;
     height: 40px;
     cursor: pointer;
@@ -350,7 +355,15 @@
     color: white;
     user-select: none;
 }
-/* ------------------------------------TERMINA CARD SHOP----------------------------- */
+.infoCard_shop h4{
+    font-size: 24px;
+    font-weight: 900;
+}
+.infoCard_shop p{
+    padding: 10px;
+    font-weight: 900;
+}
+/* -----------------------------------TERMINA CARD SHOP----------------------------- */
 
 /* ------------------------------------ABOUT US------------------------------------------------ */
 .info_container{
