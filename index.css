@@ -196,12 +196,13 @@
 .buyout_message_container{
     position: absolute;
     height: 0px;
-    top: -14px;
+    top: -18px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1030;
+    user-select: none;
     
 }
 .buyout_message{
