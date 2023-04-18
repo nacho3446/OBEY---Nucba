@@ -301,6 +301,7 @@ const buy_btn = document.querySelector('.buy_btn')
 const total_price = document.querySelector('.total_price')
 const buyoutMessageContainer = document.querySelector('.buyout_message_container')
 const buyoutMessage = document.querySelector('.buyout_message')
+const quantity_cart = document.querySelector('.quantity_cart')
 //carta de productos
 let cart = [];
 
@@ -308,6 +309,7 @@ const buyout = () => {
     cart = []
     cart_card.style.display='none'
     showMessageBuyout()
+    quantity_cart.innerHTML = '';
 }
 
 //estilos de carrito al abrir y cerrarlo
@@ -344,7 +346,14 @@ const showMessageBuyout = () => {
         buyoutMessage.style.height='0'
         buyoutMessage.style.fontSize='1px'
     }, 3000)
+    
+// Desactivar el desplazamiento
+document.body.style.overflow = "hidden";
 
+// Activar el desplazamiento después de 5 segundos
+setTimeout(function() {
+  document.body.style.overflow = "auto";
+}, 3000);
 }
 const showMessageBuy = () => {
     buyConfirmMessage.style.transition = 'all 0.2s ease-in-out'
@@ -417,6 +426,7 @@ const addToCart = (e) => {
     } else {
         cart = [... cart, {...targetProduct(e),quantity:1}]
     }
+    quantity_cart.innerHTML = cart.reduce((acc,cur)=>acc+(cur.quantity),0)
     showMessageBuy()
     checkExistCartProduct()
 }
@@ -427,11 +437,13 @@ const btnPlus = e => {
     if(isExistProduct(targetProduct(e))){
         addUnitProduct(targetProduct(e))  
     }
+    quantity_cart.innerHTML = cart.reduce((acc,cur)=>acc+(cur.quantity),0)
     checkExistCartProduct()
 }
 
 const btnMinus = e => {
     if(!e.target.classList.contains('fa-minus')) return;
+    quantity_cart.innerHTML = cart.reduce((acc,cur)=>acc+(cur.quantity),0)
     cart_card.style.display='flex'
     removeUnitProduct(e)
     checkExistCartProduct()
@@ -493,6 +505,7 @@ const title_category = document.querySelector('.title-category')
 
 const filterCategory = (e) =>{
 if (!e.target.classList.contains('subMenu_link'))return
+listItems.style.display = 'none'
 
 const valueCategory = e.target.dataset.category
 
